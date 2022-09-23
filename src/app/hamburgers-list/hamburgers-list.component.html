@@ -3,22 +3,24 @@
     <thead >
       <tr>
         <th class="table-dark" scope="col">Imagen</th>
-        <th scope="col">Nombre</th>
+        <th scope="col">Nombre </th>
         <th scope="col">Tipo</th>
         <th scope="col">Ingredientes</th>
         <th scope="col">Precio</th>
-        <th scope="col">stock</th>
+        <th scope="col">Stock</th>
+        <th scope="col">Cantidad</th>
         <th scope="col">Agregar</th>
       </tr>
     </thead>
     <tbody>
       <tr [ngClass]="{'table-offer' : burger.offer}"  *ngFor="let burger of burgers">  
-        <td><img  [src]="burger.img" [alt]="burger.name" class="card-img-top" ></td>
+        <td><img width="300" [src]="burger.img" [alt]="burger.name" class="img-thumbnail" ></td>
         <td>{{burger.name | uppercase}}</td>
         <td>{{burger.type | titlecase}}</td>
         <td>{{burger.ingredients | titlecase}}</td>
         <td>{{burger.price | currency }}</td>
         <td><span class="badge text-bg-danger" *ngIf="burger.stock==0">SIN STOCK</span> {{burger.stock}}</td>
+        <td><button type="button" class="btn btn-light btn-sm">-</button>{{burger.quantity}}<button type="button" class="btn btn-light btn-sm">+</button></td>
         <td><button type="button" class="btn btn-light">Agregar al carrito</button></td>    
       </tr>
     </tbody>

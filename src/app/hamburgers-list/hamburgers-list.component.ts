@@ -16,6 +16,7 @@ export class HamburgersListComponent implements OnInit {
       img: 'assets/img/cheese_bacon.jpg',
       stock:50,
       offer : true,
+      quantity : 0,
     },
     {
       name: 'Vegetariana',
@@ -25,6 +26,7 @@ export class HamburgersListComponent implements OnInit {
       img: 'assets/img/burger_vegana.jpg',
       stock:50,
       offer : false,
+      quantity : 0,
     },
     {
       name: 'Mortal',
@@ -34,6 +36,7 @@ export class HamburgersListComponent implements OnInit {
       img: 'assets/img/Mortal.jpeg',
       stock:50,
       offer : false,
+      quantity : 0,
     },
     {
       name: 'American',
@@ -43,6 +46,7 @@ export class HamburgersListComponent implements OnInit {
       img: 'assets/img/american.jpeg',
       stock:50,
       offer : false,
+      quantity : 0,
     },
     {
       name: 'La de Siempre',
@@ -52,6 +56,7 @@ export class HamburgersListComponent implements OnInit {
       img: 'assets/img/doble_queso.jpeg',
       stock:0,
       offer : true,
+      quantity : 0,
     },
   ];
   constructor() {}
