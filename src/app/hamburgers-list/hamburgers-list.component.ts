@@ -34,7 +34,7 @@ export class HamburgersListComponent implements OnInit {
       ingredients: '4 quesos, aros de cebolla, hongos, huevo',
       price: 1500,
       img: 'assets/img/Mortal.jpeg',
-      stock:50,
+      stock:10,
       offer : false,
       quantity : 0,
     },
@@ -62,4 +62,20 @@ export class HamburgersListComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  upQuantity(burger:Burger): void {
+    if(burger.quantity < burger.stock)
+        burger.quantity++;
+  }
+
+  changeQuantity(event : Event, burger:Burger):void{
+    if(event.target){
+
+    }
+  }
+
+  downQuantity(burger:Burger): void {
+    if(burger.quantity > 0)
+        burger.quantity--;
+  }
 }
