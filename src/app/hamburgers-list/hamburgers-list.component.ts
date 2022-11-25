@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BurgerDataService } from '../burger-data.service';
+import { HamburgersCartService } from '../hamburgers-cart.service';
 import { Burger } from './hamburgers';
 
 @Component({
@@ -24,7 +26,7 @@ export class HamburgersListComponent implements OnInit {
       ingredients: 'Soja, cebolla, chesse',
       price: 1100,
       img: 'assets/img/burger_vegana.jpg',
-      stock:50,
+      stock:5,
       offer : false,
       quantity : 0,
     },
@@ -34,7 +36,7 @@ export class HamburgersListComponent implements OnInit {
       ingredients: '4 quesos, aros de cebolla, hongos, huevo',
       price: 1500,
       img: 'assets/img/Mortal.jpeg',
-      stock:10,
+      stock:8,
       offer : false,
       quantity : 0,
     },
@@ -44,7 +46,7 @@ export class HamburgersListComponent implements OnInit {
       ingredients: 'Tomate, cebolla, lechuga, salsa especial',
       price: 1400,
       img: 'assets/img/american.jpeg',
-      stock:50,
+      stock:10,
       offer : false,
       quantity : 0,
     },
@@ -57,25 +59,29 @@ export class HamburgersListComponent implements OnInit {
       stock:0,
       offer : true,
       quantity : 0,
-    },
-  ];
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  upQuantity(burger:Burger): void {
-    if(burger.quantity < burger.stock)
-        burger.quantity++;
-  }
-
-  changeQuantity(event : Event, burger:Burger):void{
-    if(event.target){
-
     }
+  ];
+
+  /*
+  *Inyectamos la dependencia del servicio.
+  *Se crea una variable privada con una instancia del servicio. */
+  constructor( private cart : HamburgersCartService,
+               private burgerService : BurgerDataService) {
+    
   }
 
-  downQuantity(burger:Burger): void {
-    if(burger.quantity > 0)
-        burger.quantity--;
+  ngOnInit(): void {
+
+  }
+
+  addToCart(burger : Burger): void{
+    this.cart.addToCart(burger);
+    burger.stock -= burger.quantity;
+    burger.quantity = 0;
+  }
+
+
+  maxReached(msj : String): void {
+    alert(msj);
   }
 }

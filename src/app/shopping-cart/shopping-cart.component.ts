@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, observable } from 'rxjs';
+import { HamburgersCartService } from '../hamburgers-cart.service';
+import { Burger } from '../hamburgers-list/hamburgers';
+import { HamburgersListComponent } from '../hamburgers-list/hamburgers-list.component';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartComponent implements OnInit {
 
-  constructor() { }
-
+  cartList$: Observable<Burger[]>;
+  /* 
+ * Verificar antes de cada paso q no se rompa nd  */ 
+  constructor(private cart :HamburgersCartService ) { 
+    this.cartList$ = cart.cartList.asObservable();
+  }
+  /* this.cart.sucribe(hola)*/
   ngOnInit(): void {
+
   }
 
 }

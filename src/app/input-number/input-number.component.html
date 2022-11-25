@@ -1,0 +1,8 @@
+<td>
+  <div class=" input-group ">
+    <button type="button" class="btn btn-light " (click)="downQuantity()">-</button>
+    <input type="text" class="form-control"   (keyup)="changeQuantity($event)" [value]="quantity"
+      [(ngModel)]="quantity" class="form-control">
+    <button type="button" class="btn btn-light " (click)="upQuantity()">+</button>
+  </div>
+</td>

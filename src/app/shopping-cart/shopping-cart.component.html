@@ -1,1 +1,5 @@
-<h3 class="display-6  text-decoration-underline text-capitalize">Carrito de compras</h3>
+<h3 class="display-6  text-decoration-underline text-capitalize text-center">Carrito de compras</h3>
+<ul>
+    <li class="list-group-item list-group-item-dark" *ngFor = "let burger of cartList$ | async">
+        {{burger.name}} : {{burger.quantity}}  <span class=" text-bg-danger text-uppercase "><button class="btn btn-close "></button>Quitar</span>
+</ul>

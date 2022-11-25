@@ -1,4 +1,4 @@
-<h3 class="display-6 text-decoration-underline text-capitalize">Lista de Hamburguesas</h3>
+<h3 class="display-6 text-decoration-underline text-center text-capitalize">Lista de Hamburguesas</h3>
 <table class="table table-dark table-hover text-center">
   <thead>
     <tr>
@@ -19,16 +19,15 @@
       <td>{{burger.type | titlecase}}</td>
       <td>{{burger.ingredients | titlecase}}</td>
       <td>{{burger.price | currency }}</td>
-      <td><span class="badge text-bg-danger" *ngIf="burger.stock==0">SIN STOCK</span> {{burger.stock}}</td>
       <td>
-        <div class=" input-group ">
-          <button type="button" class="btn btn-light " (click)="downQuantity(burger)">-</button>
-          <input type="text" class="form-control" (keyup)="changeQuantity($event, burger)" [value]="burger.quantity"
-            [(ngModel)]="burger.quantity" class="form-control">
-          <button type="button" class="btn btn-light " (click)="upQuantity(burger)">+</button>
-        </div>
+        <span class="badge text-bg-success" *ngIf="burger.offer == true">EN OFERTA</span> 
+        <span class="badge text-bg-danger" *ngIf="burger.stock==0">SIN STOCK</span>
+        <span *ngIf="burger.stock > 0" > {{burger.stock}}</span>
       </td>
-      <td><button type="button" class="btn btn-light ">Agregar al carrito</button></td>
+      <td>
+        <app-input-number [(quantity)]="burger.quantity" [max]="burger.stock" *ngIf="burger.stock" (maxReached)="maxReached($event)"> </app-input-number>
+      </td>
+      <td><button  (click)="addToCart(burger)" class="btn btn-light ">Comprar</button></td>
     </tr>
   </tbody>
 </table>
