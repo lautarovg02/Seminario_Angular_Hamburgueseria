@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Burger } from '../hamburgers-list/hamburgers';
 
 
 @Component({
@@ -16,6 +17,9 @@ export class InputNumberComponent implements OnInit {
 
   @Input()
   'max' :number;
+
+  @Input()
+  'burger' :Burger;
 
   @Output()
   'quantityChange' : EventEmitter<number> = new EventEmitter<number>();
@@ -40,7 +44,18 @@ export class InputNumberComponent implements OnInit {
       alert(this.quantity);
    }
   }
-
+ /* changeQuantity(event:any,beer:Beer):void{
+    let cant=(event.target.value);
+    let inputCant=event.target;
+    if(cant>beer.stock){
+      cant=0;
+      inputCant.value=0;
+      console.log('error la cantidad pretendida supera el stock');
+    }
+    console.log(cant);
+    
+  }
+*/
   downQuantity(): void {
     if(this.quantity > 0){
       this.quantity--;

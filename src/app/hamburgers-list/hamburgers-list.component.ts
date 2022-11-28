@@ -22,6 +22,17 @@ export class HamburgersListComponent implements OnInit {
   ngOnInit(): void {
     this.burgerDataService.getAll()
     .subscribe(burgers  => this.burgers = burgers); 
+    this.cart.getList().subscribe(burger =>{
+      this.burgers.forEach( element => {
+        if(element.id === burger.id ){
+          element.stock += burger.quantity;
+          element.quantity = 0;
+
+        }
+
+      });
+
+    })
     //* Una buena practica aveces es dejar el observable arriba, y empezar a suscribirse abajo
     //* Siempre que te suscribis hay que desuscribirse
   }
@@ -31,7 +42,6 @@ export class HamburgersListComponent implements OnInit {
     burger.stock -= burger.quantity;
     burger.quantity = 0;
   }
-
 
   maxReached(msj : String): void {
     alert(msj);

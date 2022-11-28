@@ -17,9 +17,14 @@ export class ShoppingCartComponent implements OnInit {
   constructor(private cart :HamburgersCartService ) { 
     this.cartList$ = cart.cartList.asObservable();
   }
-  /* this.cart.sucribe(hola)*/
+
   ngOnInit(): void {
 
+  }
+
+  cancelPurchase(burger : Burger): void {
+    this.cart.cancelPurchase(burger)
+    this.cart.updateList(burger);
   }
 
 }

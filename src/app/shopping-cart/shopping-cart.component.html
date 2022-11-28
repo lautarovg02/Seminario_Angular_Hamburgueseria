@@ -11,7 +11,7 @@
         <tr *ngFor="let burger of cartList$ | async">
             <td>{{burger.name | uppercase}}</td>
             <td>{{burger.quantity}} </td>
-            <td><button  class="btn btn-close btn-danger "></button></td>
+            <td><button  class="btn btn-close btn-danger" (click)="cancelPurchase(burger)"></button></td>
         </tr>
     </tbody>
 </table>

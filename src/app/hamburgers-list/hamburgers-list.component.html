@@ -25,7 +25,7 @@
         <span *ngIf="burger.stock > 0" > {{burger.stock}}</span>
       </td>
       <td>
-        <app-input-number [(quantity)]="burger.quantity" [max]="burger.stock" *ngIf="burger.stock" (maxReached)="maxReached($event)"> </app-input-number>
+        <app-input-number  [(quantity)]="burger.quantity" [max]="burger.stock" *ngIf="burger.stock" (maxReached)="maxReached($event )"> </app-input-number>
       </td>
       <td><button  (click)="addToCart(burger)" class="btn btn-light ">Comprar</button></td>
     </tr>
