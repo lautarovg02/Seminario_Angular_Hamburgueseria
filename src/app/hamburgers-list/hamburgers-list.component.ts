@@ -43,6 +43,8 @@ export class HamburgersListComponent implements OnInit {
     burger.quantity = 0;
   }
 
+ 
+
   maxReached(msj : String): void {
     alert(msj);
   }

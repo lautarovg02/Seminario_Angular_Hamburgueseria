@@ -19,9 +19,10 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+  
   }
-
+  
+ 
   cancelPurchase(burger : Burger): void {
     this.cart.cancelPurchase(burger)
     this.cart.updateList(burger);
